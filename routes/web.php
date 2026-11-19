@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Route;
 
 // DASHBOARD PEMILIK
@@ -19,4 +20,8 @@ Route::get('/pembeli', function () {
 
 Route::get('/pembeli/produk', function () {
     return view('pembeli.produk');
+});
+
+Route::prefix('owner')->name('owner.')->group(function () {
+    Route::resource('produk', ProdukController::class);
 });
